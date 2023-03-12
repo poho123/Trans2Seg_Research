@@ -38,7 +38,7 @@ class TransparentSegmentation(SegmentationDataset):
     BASE_DIR = 'Trans10K_cls12'
     NUM_CLASS = 12
 
-    def __init__(self, root='datasets/transparent', split='test', mode=None, transform=None, **kwargs):
+    def __init__(self, root='/kaggle/input/transparent', split='test', mode=None, transform=None, **kwargs):
         super(TransparentSegmentation, self).__init__(root, split, mode, transform, **kwargs)
         root = os.path.join(self.root, self.BASE_DIR)
         assert os.path.exists(root), "Please put the data in {SEG_ROOT}/datasets/transparent"
