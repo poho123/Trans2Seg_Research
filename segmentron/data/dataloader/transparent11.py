@@ -40,7 +40,7 @@ class TransparentSegmentation(SegmentationDataset):
 
     def __init__(self, root='/kaggle/input/transparent', split='test', mode=None, transform=None, **kwargs):
         super(TransparentSegmentation, self).__init__(root, split, mode, transform, **kwargs)
-        root = os.path.join(self.root, self.BASE_DIR)
+        root = os.path.join('/kaggle/input/transparent', self.BASE_DIR)
         assert os.path.exists(root), "Please put the data in {SEG_ROOT}/datasets/transparent"
         self.images, self.masks = _get_trans10k_pairs(root, split)
         assert (len(self.images) == len(self.masks))
