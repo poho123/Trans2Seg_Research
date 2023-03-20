@@ -14,7 +14,7 @@ cfg.PHASE = 'train'
 
 ########################## dataset config #########################################
 # dataset name
-cfg.DATASET.NAME = ''
+cfg.DATASET.NAME = 'trans10kv2'
 # pixel mean
 cfg.DATASET.MEAN = [0.5, 0.5, 0.5]
 # pixel std
