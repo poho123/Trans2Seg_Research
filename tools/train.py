@@ -155,7 +155,7 @@ class Trainer(object):
             images = images.to(self.device)
             print(np.shape(images))
             targets = targets.to(self.device)
-
+            print(np.shape(targets))
             outputs = self.model(images)
             loss_dict = self.criterion(outputs, targets)
             losses = sum(loss for loss in loss_dict.values())
