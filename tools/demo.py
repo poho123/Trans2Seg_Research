@@ -43,7 +43,9 @@ def demo():
     else:
         img_paths = [args.input_img]
     for img_path in img_paths:
+        print(img_path)
         image = Image.open(img_path).convert('RGB')
+        image=np.array(image)
         images = transform(image).unsqueeze(0).to(args.device)
         with torch.no_grad():
             output = model(images)
