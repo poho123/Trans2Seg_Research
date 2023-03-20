@@ -13,7 +13,7 @@ import torch
 import torch.nn as nn
 import torch.utils.data as data
 import torch.nn.functional as F
-
+import numpy as np
 from torchvision import transforms
 from segmentron.data.dataloader import get_segmentation_dataset
 from segmentron.models.model_zoo import get_segmentation_model
@@ -153,6 +153,7 @@ class Trainer(object):
             iteration += 1
 
             images = images.to(self.device)
+            print(np.shape(images))
             targets = targets.to(self.device)
 
             outputs = self.model(images)
