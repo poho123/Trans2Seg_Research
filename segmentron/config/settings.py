@@ -99,7 +99,7 @@ cfg.SOLVER.AUX_WEIGHT = 0.4
 cfg.SOLVER.LOSS_NAME = ''
 ########################## test config ###########################################
 # val/test model path
-cfg.TEST.TEST_MODEL_PATH = ''
+cfg.TEST.TEST_MODEL_PATH = '/kaggle/input/transparent/50.pth ROOT_PATH'
 # test batch size
 cfg.TEST.BATCH_SIZE = 1
 # eval crop size
