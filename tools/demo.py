@@ -45,8 +45,8 @@ def demo():
     for img_path in img_paths:
         print(img_path)
         image = Image.open(img_path).convert('RGB')
-        image=np.array(image)
-        image=cv2.resize(image,(512,512),interpolation=cv2.INTER_AREA)
+        image=np.array(image)    
+        image=cv2.resize(image,(512,512),interpolation=cv2.INTER_LINEAR)
         images = transform(image).unsqueeze(0).to(args.device)
         with torch.no_grad():
             output = model(images)
