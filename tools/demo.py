@@ -5,7 +5,7 @@ import numpy as np
 cur_path = os.path.abspath(os.path.dirname(__file__))
 root_path = os.path.split(cur_path)[0]
 sys.path.append(root_path)
-
+import cv2
 from torchvision import transforms
 from PIL import Image
 from segmentron.utils.visualize import get_color_pallete
@@ -46,6 +46,7 @@ def demo():
         print(img_path)
         image = Image.open(img_path).convert('RGB')
         image=np.array(image)
+        image=cv2.resize(image,(512,512),interpolation=cv2.INTER_AREA)
         images = transform(image).unsqueeze(0).to(args.device)
         with torch.no_grad():
             output = model(images)
