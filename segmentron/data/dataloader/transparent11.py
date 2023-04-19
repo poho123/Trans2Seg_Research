@@ -92,7 +92,7 @@ class TransparentSegmentation(SegmentationDataset):
     @property
     def classes(self):
         """Category names."""
-        return ('mug')
+        return ('mug0','mug1')
 
 
 def _get_trans10k_pairs(folder, mode='train'):
