@@ -101,6 +101,7 @@ class TransformerHead(nn.Module):
         feat_enc, attns_list = self.transformer(x)
         attn_map = attns_list[-1]
         B, nclass, nhead, _ = attn_map.shape
+        print(nclass)
         _, _, H, W = feat_enc.shape
         attn_map = attn_map.reshape(B*nclass, nhead, H, W)
 
