@@ -120,7 +120,7 @@ def _get_trans10k_pairs(folder, mode='train'):
                 mask_paths.append(maskpath)
             else:
                 logging.info('cannot find the mask:', maskpath)
-    print(img_paths,mask_paths)
+    #print(img_paths,mask_paths)
     return img_paths, mask_paths
 
 
