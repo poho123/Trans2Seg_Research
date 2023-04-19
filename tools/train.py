@@ -158,7 +158,7 @@ class Trainer(object):
             targets = targets.to(self.device)
             print(np.shape(targets))
             outputs = self.model(images)
-            print(np.shape(outputs))
+            print(np.shape(outputs.detach().numpy()))
             loss_dict = self.criterion(outputs, targets)
             losses = sum(loss for loss in loss_dict.values())
             # reduce losses over all GPUs for logging purposes
