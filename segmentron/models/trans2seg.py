@@ -8,7 +8,7 @@ from ..modules import _ConvBNReLU, SeparableConv2d, _ASPP, _FCNHead
 from ..config import cfg
 from ..modules import VisionTransformer
 from IPython import embed
-
+import numpy as np
 
 __all__ = ['Trans2Seg']
 
@@ -47,7 +47,7 @@ class Trans2Seg(SegBaseModel):
         outputs = list()
         x = self.transformer_head(c4, c1)
         x = F.interpolate(x, size, mode='bilinear', align_corners=True)
-
+        print(np.shape(x))
         outputs.append(x)
         if self.aux:
             auxout = self.auxlayer(c3)
