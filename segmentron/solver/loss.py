@@ -3,7 +3,7 @@ import logging
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+import numpy as np
 from torch.autograd import Variable
 from .lovasz_losses import lovasz_softmax
 from ..data.dataloader import datasets
