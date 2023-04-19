@@ -33,7 +33,7 @@ class Trans2Seg(SegBaseModel):
         c4_HxW = (cfg.TRAIN.BASE_SIZE // 16) ** 2
 
         vit_params['decoder_feat_HxW'] = c4_HxW
-
+        print("class",self.nclass)
         self.transformer_head = TransformerHead(vit_params, c1_channels=c1_channels, c4_channels=c4_channels, hid_dim=hid_dim)
         if self.aux:
             self.auxlayer = _FCNHead(728, self.nclass)
