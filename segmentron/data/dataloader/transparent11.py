@@ -40,7 +40,7 @@ class TransparentSegmentation(SegmentationDataset):
 
     def __init__(self, root='/kaggle/input/transparent', split='test', mode=None, transform=None, **kwargs):
         super(TransparentSegmentation, self).__init__(root, split, mode, transform, **kwargs)
-        root = '/kaggle/input/transparent/trans12cls/Trans10K_cls12'
+        root = '/kaggle/working/dataset'
         print(root)
         assert os.path.exists(root), "Please put the data in {SEG_ROOT}/datasets/transparent"
         self.images, self.masks = _get_trans10k_pairs(root, split)
@@ -92,9 +92,7 @@ class TransparentSegmentation(SegmentationDataset):
     @property
     def classes(self):
         """Category names."""
-        return ('Background', 'Shelf', 'Jar or Tank', 'Freezer', 'Window',
-                'Glass Door', 'Eyeglass', 'Cup', 'Floor Glass', 'Glass Bow',
-                'Water Bottle', 'Storage Box')
+        return ('mug')
 
 
 def _get_trans10k_pairs(folder, mode='train'):
@@ -113,7 +111,7 @@ def _get_trans10k_pairs(folder, mode='train'):
 
     for filename in os.listdir(img_folder):
         basename, _ = os.path.splitext(filename)
-        if filename.endswith(".jpg"):
+        if filename.endswith(".png"):
             imgpath = os.path.join(img_folder, filename)
             maskname = basename + '_mask.png'
             maskpath = os.path.join(mask_folder, maskname)
