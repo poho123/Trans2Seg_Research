@@ -7,7 +7,7 @@ import sys
 cur_path = os.path.abspath(os.path.dirname(__file__))
 root_path = os.path.split(cur_path)[0]
 sys.path.append(root_path)
-
+import numpy as np
 import logging
 import torch
 import torch.nn as nn
@@ -149,7 +149,7 @@ class Trainer(object):
         self.model.train()
         iteration = self.start_epoch * iters_per_epoch if self.start_epoch > 0 else 0
         for (images, targets, _) in self.train_loader:
-            print(targets)
+            print(np.shape(targets))
             epoch = iteration // iters_per_epoch + 1
             iteration += 1
 
