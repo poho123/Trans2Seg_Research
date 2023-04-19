@@ -210,6 +210,7 @@ class MixSoftmaxCrossEntropyOHEMLoss(OhemCrossEntropy2d):
 
     def forward(self, *inputs):
         preds, target = tuple(inputs)
+        print("yo",np.shape(preds),np.shape(target))
         inputs = tuple(list(preds) + [target])
         if self.aux:
             return dict(loss=self._aux_forward(*inputs))
