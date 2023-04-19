@@ -111,7 +111,7 @@ def _get_trans10k_pairs(folder, mode='train'):
 
     for filename in os.listdir(img_folder):
         basename, _ = os.path.splitext(filename)
-        if filename.endswith(".png"):
+        if filename.endswith(".jpg"):
             imgpath = os.path.join(img_folder, filename)
             maskname = basename + '_mask.png'
             maskpath = os.path.join(mask_folder, maskname)
