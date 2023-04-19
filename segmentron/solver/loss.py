@@ -64,6 +64,7 @@ class MixSoftmaxCrossEntropyLoss(nn.CrossEntropyLoss):
 
     def forward(self, *inputs, **kwargs):
         preds, target = tuple(inputs)
+        print(preds,target)
         #print("yo",np.shape(list(preds)),np.shape(list(target)))
         inputs = tuple(list(preds) + [target])
         if self.aux:
