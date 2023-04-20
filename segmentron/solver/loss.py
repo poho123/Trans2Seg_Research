@@ -64,7 +64,7 @@ class MixSoftmaxCrossEntropyLoss(nn.CrossEntropyLoss):
 
     def forward(self, *inputs, **kwargs):
         preds, target = tuple(inputs)
-        print(preds,target)
+        #print(preds,target)
         #print("yo",np.shape(list(preds)),np.shape(list(target)))
         inputs = tuple(list(preds) + [target])
         if self.aux:
@@ -72,7 +72,7 @@ class MixSoftmaxCrossEntropyLoss(nn.CrossEntropyLoss):
         elif len(preds) > 1:
             return dict(loss=self._multiple_forward(*inputs))
         else:
-            return dict(loss=super(MixSoftmaxCrossEntropyLoss, self).forward(preds[0], target))
+            return dict(loss=super(MixSoftmaxCrossEntropyLoss, self).forward(*inputs))
 
 
 class ICNetLoss(nn.CrossEntropyLoss):
