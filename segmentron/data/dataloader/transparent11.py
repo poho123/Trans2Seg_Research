@@ -36,7 +36,7 @@ class TransparentSegmentation(SegmentationDataset):
     >>>     num_workers=4)
     """
     BASE_DIR = 'Trans10K_cls12'
-    NUM_CLASS = 1
+    NUM_CLASS = 2
 
     def __init__(self, root='/kaggle/input/transparent', split='test', mode=None, transform=None, **kwargs):
         super(TransparentSegmentation, self).__init__(root, split, mode, transform, **kwargs)
