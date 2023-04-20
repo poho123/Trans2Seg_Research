@@ -169,7 +169,7 @@ class HybridEmbed(nn.Module):
 class VisionTransformer(nn.Module):
     """ Vision Transformer with support for patch or hybrid CNN input stage
     """
-    def __init__(self, input_dim=2048, embed_dim=768, depth=12, num_patches=32*32, nclass=2,
+    def __init__(self, input_dim=2048, embed_dim=768, depth=12, num_patches=32*32, nclass=1,
                  decoder_feat_HxW=1024, num_heads=12, mlp_ratio=4., qkv_bias=False, qk_scale=None,
                  drop_rate=0., attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm):
         super().__init__()
