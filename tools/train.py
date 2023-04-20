@@ -149,16 +149,16 @@ class Trainer(object):
         self.model.train()
         iteration = self.start_epoch * iters_per_epoch if self.start_epoch > 0 else 0
         for (images, targets, _) in self.train_loader:
-            print(np.shape(targets))
+            #print(np.shape(targets))
             epoch = iteration // iters_per_epoch + 1
             iteration += 1
 
             images = images.to(self.device)
-            print(np.shape(images))
+            #print(np.shape(images))
             targets = targets.to(self.device)
-            print(np.shape(targets))
+            #print(np.shape(targets))
             outputs = self.model(images)
-            print(len(outputs))
+            #print(len(outputs))
             loss_dict = self.criterion(outputs, targets)
             losses = sum(loss for loss in loss_dict.values())
             # reduce losses over all GPUs for logging purposes
