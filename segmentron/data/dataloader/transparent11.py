@@ -68,7 +68,7 @@ class TransparentSegmentation(SegmentationDataset):
             if self.transform is not None:
                 img = self.transform(img)
             return img, os.path.basename(self.images[index])
-        mask = Image.open(self.masks[index]).convert("P")
+        mask = Image.open(self.masks[index]).convert("1")
         # synchrosized transform
         if self.mode == 'train':
             img, mask = self._sync_transform(img, mask, resize=True)
