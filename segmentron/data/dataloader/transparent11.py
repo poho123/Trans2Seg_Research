@@ -36,7 +36,7 @@ class TransparentSegmentation(SegmentationDataset):
     >>>     num_workers=4)
     """
     BASE_DIR = 'Trans10K_cls12'
-    NUM_CLASS = 2
+    NUM_CLASS = 1
 
     def __init__(self, root='/kaggle/input/transparent', split='test', mode=None, transform=None, **kwargs):
         super(TransparentSegmentation, self).__init__(root, split, mode, transform, **kwargs)
@@ -92,7 +92,7 @@ class TransparentSegmentation(SegmentationDataset):
     @property
     def classes(self):
         """Category names."""
-        return ('mug0','mug1')
+        return ('mug')
 
 
 def _get_trans10k_pairs(folder, mode='train'):
