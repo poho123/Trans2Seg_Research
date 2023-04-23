@@ -36,7 +36,7 @@ class TransparentSegmentation(SegmentationDataset):
     >>>     num_workers=4)
     """
     BASE_DIR = 'Trans10K_cls12'
-    NUM_CLASS = 2
+    NUM_CLASS = 3
 
     def __init__(self, root='/kaggle/input/transparent', split='test', mode=None, transform=None, **kwargs):
         super(TransparentSegmentation, self).__init__(root, split, mode, transform, **kwargs)
@@ -68,7 +68,7 @@ class TransparentSegmentation(SegmentationDataset):
             if self.transform is not None:
                 img = self.transform(img)
             return img, os.path.basename(self.images[index])
-        mask = Image.open(self.masks[index]).convert("1")
+        mask = Image.open(self.masks[index]).convert("P")
         # synchrosized transform
         if self.mode == 'train':
             img, mask = self._sync_transform(img, mask, resize=True)
@@ -92,7 +92,7 @@ class TransparentSegmentation(SegmentationDataset):
     @property
     def classes(self):
         """Category names."""
-        return ("back",'mug')
+        return ('bottle','cup','mug')
 
 
 def _get_trans10k_pairs(folder, mode='train'):
