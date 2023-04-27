@@ -37,7 +37,7 @@ cfg.AUG.COLOR_JITTER = None
 cfg.AUG.CROP = True
 ########################### train config ##########################################
 # epochs
-cfg.TRAIN.EPOCHS = 50
+cfg.TRAIN.EPOCHS = 10
 # batch size
 cfg.TRAIN.BATCH_SIZE = 1
 # train crop size
@@ -55,7 +55,7 @@ cfg.TRAIN.BACKBONE_PRETRAINED = True
 # backbone pretrained model path, if not specific, will load from url when backbone pretrained enabled
 cfg.TRAIN.BACKBONE_PRETRAINED_PATH = ''
 # resume model path
-cfg.TRAIN.RESUME_MODEL_PATH = ''
+cfg.TRAIN.RESUME_MODEL_PATH = '/kaggle/input/research/41.pth'
 # whether to use synchronize bn
 cfg.TRAIN.SYNC_BATCH_NORM = True
 # save model every checkpoint-epoch
