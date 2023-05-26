@@ -37,7 +37,7 @@ cfg.AUG.COLOR_JITTER = None
 cfg.AUG.CROP = True
 ########################### train config ##########################################
 # epochs
-cfg.TRAIN.EPOCHS = 35
+cfg.TRAIN.EPOCHS = 50
 # batch size
 cfg.TRAIN.BATCH_SIZE = 1
 # train crop size
