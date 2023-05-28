@@ -55,7 +55,7 @@ cfg.TRAIN.BACKBONE_PRETRAINED = True
 # backbone pretrained model path, if not specific, will load from url when backbone pretrained enabled
 cfg.TRAIN.BACKBONE_PRETRAINED_PATH = ''
 # resume model path
-cfg.TRAIN.RESUME_MODEL_PATH = '/kaggle/input/research/41.pth'
+cfg.TRAIN.RESUME_MODEL_PATH = '/kaggle/input/research-test/39.pth'
 # whether to use synchronize bn
 cfg.TRAIN.SYNC_BATCH_NORM = True
 # save model every checkpoint-epoch
@@ -99,7 +99,7 @@ cfg.SOLVER.AUX_WEIGHT = 0.4
 cfg.SOLVER.LOSS_NAME = ''
 ########################## test config ###########################################
 # val/test model path
-cfg.TEST.TEST_MODEL_PATH = '/kaggle/input/research/41.pth'
+cfg.TEST.TEST_MODEL_PATH = '/kaggle/input/research-test/39.pth'
 # test batch size
 cfg.TEST.BATCH_SIZE = 1
 # eval crop size
