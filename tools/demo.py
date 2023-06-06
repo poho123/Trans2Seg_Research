@@ -24,8 +24,7 @@ def demo():
     default_setup(args)
 
     # output folder
-    output_dir = os.path.join(cfg.VISUAL.OUTPUT_DIR, 'vis_result_{}_{}_{}_{}'.format(
-        cfg.MODEL.MODEL_NAME, cfg.MODEL.BACKBONE, cfg.DATASET.NAME, cfg.TIME_STAMP))
+    output_dir = os.path.join(cfg.VISUAL.OUTPUT_DIR, '{}'.format(args.input_img))
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
