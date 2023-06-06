@@ -24,6 +24,7 @@ def demo():
     default_setup(args)
 
     # output folder
+    print(os.path.split(args.input_img))
     output_dir = os.path.join('/kaggle/working/', '{}'.format(os.path.split(args.input_img)[-3]), '{}'.format(os.path.split(args.input_img)[-2]))
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
