@@ -26,7 +26,7 @@ def demo():
     # output folder
     
     output_dir = os.path.join('/kaggle/working/result/', '{}'.format(args.input_img.split('/')[-2]), '{}'.format(args.input_img.split('/')[-1]))
-    print(output_dir)
+
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
@@ -44,20 +44,21 @@ def demo():
     else:
         img_paths = [args.input_img]
     for img_path in img_paths:
-        print(img_path)
-        image = Image.open(img_path).convert('RGB')
-        image=np.array(image)    
-        image=cv2.resize(image,(512,512),interpolation=cv2.INTER_LINEAR)
-        images = transform(image).unsqueeze(0).to(args.device)
-        with torch.no_grad():
-            output = model(images)
+        if(os.path.split(img_path)[-1].find("mask")!=-1):
+            #print(img_path)
+            image = Image.open(img_path).convert('RGB')
+            image=np.array(image)    
+            image=cv2.resize(image,(512,512),interpolation=cv2.INTER_LINEAR)
+            images = transform(image).unsqueeze(0).to(args.device)
+            with torch.no_grad():
+                output = model(images)
 
-        pred = torch.argmax(output[0], 1).squeeze(0).cpu().data.numpy()
-        mask = get_color_pallete(pred, 'trans10kv2')
-        print(cfg.DATASET.NAME)
-        outname = os.path.splitext(os.path.split(img_path)[-1])[0] + '.png'
-        print("yo",output_dir,outname)
-        mask.save(os.path.join(output_dir, outname))
+            pred = torch.argmax(output[0], 1).squeeze(0).cpu().data.numpy()
+            mask = get_color_pallete(pred, 'trans10kv2')
+            print(cfg.DATASET.NAME)
+            outname = os.path.splitext(os.path.split(img_path)[-1])[0] + '.png'
+            print("yo",output_dir,outname)
+            mask.save(os.path.join(output_dir, outname))
 
 
 if __name__ == '__main__':
