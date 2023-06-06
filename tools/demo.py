@@ -54,6 +54,7 @@ def demo():
         mask = get_color_pallete(pred, 'trans10kv2')
         print(cfg.DATASET.NAME)
         outname = os.path.splitext(os.path.split(img_path)[-1])[0] + '.png'
+        print(output_dir,outname)
         mask.save(os.path.join(output_dir, outname))
 
 
