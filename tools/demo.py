@@ -45,7 +45,7 @@ def demo():
         img_paths = [args.input_img]
     for img_path in img_paths:
         if(os.path.split(img_path)[-1].find("mask")!=-1):
-            #print(img_path)
+            print(img_path)
             image = Image.open(img_path).convert('RGB')
             image=np.array(image)    
             image=cv2.resize(image,(512,512),interpolation=cv2.INTER_LINEAR)
